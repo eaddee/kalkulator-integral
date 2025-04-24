@@ -1,0 +1,2 @@
+# kalkulator-integral
+Metode Numerik
