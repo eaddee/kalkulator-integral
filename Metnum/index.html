@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Integrasi Newton-Cotes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Kalkulator Integrasi Newton-Cotes</h1>
+    
+    <label for="formula">Metode Integrasi</label>
+    <select id="formula">
+      <option value="trapezoidal">Aturan Trapesium</option>
+    </select>
+
+    <label>Pilih Fungsi</label>
+    <div class="button-group">
+      <button class="func-btn" onclick="setFunction('quadratic')">Kuadrat (x²)</button>
+      <button class="func-btn" onclick="setFunction('sine')">Sinus (sin(x))</button>
+      <button class="func-btn" onclick="setFunction('exp')">Eksponensial (eˣ)</button>
+      <button class="func-btn" onclick="setFunction('polynomial')">Polinomial (x³ + x)</button>
+      <button class="func-btn" onclick="setFunction('log')">Logaritmik (ln(x))</button>
+    </div>
+
+    <label for="lower">Batas Bawah (a)</label>
+    <input type="number" id="lower" value="0">
+
+    <label for="upper">Batas Atas (b)</label>
+    <input type="number" id="upper" value="1">
+
+    <label for="segments">Jumlah Segmen: <span id="segmentCount">10</span></label>
+    <input type="range" id="segments" min="1" max="100" value="10" oninput="updateSegmentCount(this.value)">
+
+    <button class="calculate-button" onclick="calculate()">🔢 Hitung Integral</button>
+
+    <div id="result" class="result"></div>
+    <canvas id="chartCanvas" width="400" height="200" style="margin-top: 20px;"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
